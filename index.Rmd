@@ -1,0 +1,79 @@
+---
+title       : The Data Explorer
+subtitle    : Final Assignment Developing Data Products 
+author      : Simon Baumgart 
+job         : Pitch Presentation 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+github      :
+    user: simjbaum
+    repo: slidifyDemo1
+---
+
+## What is "The Data Explorer"
+I need to plot those variables and these variables and i need to calculate the linear regression and get the r² value ...  
+I wish there were a tool for that ...
+THERE IS!
+
+"The Data Explorer"
+
+The Data Explorer you can find here:
+[The Data Explorer - Shiny App](https://github.com/simjbaum/StatisticInferenceAssignment1)  
+
+--- .class #id 
+
+## Hi my name is Simon
+
+I live here:  
+
+```{r, echo=F, eval=TRUE, message=FALSE, out.width='50%'}
+library(leaflet)
+library(dplyr)
+locations <- data.frame(lat=c(52.5278), lng =c(13.44987), names = c("Simons Home"))
+leaflet(locations) %>% setView(lng = 13.44987, lat = 52.5278, zoom = 10) %>%
+    addTiles() %>% 
+    addMarkers(lat = ~lat, lng = ~lng, popup = ~names, icon = list(
+    iconUrl = c('http://icons.iconarchive.com/icons/paomedia/small-n-flat/512/house-icon.png'),
+    iconSize = c(30, 30)))
+```
+  
+and I developed the "Data Explorer"  ... but its a fairly simple tool
+
+--- .class #id  
+
+## what does the data explorer do?  
+
+You can choose between the datasets:
+
+> 1. mtcars
+> 2. airquality
+> 3. iris
+
+>  then you can choose between variables of the dataset to be plotted to each other and the regression line will be added in a plotly plot, for example like this:
+>   
+
+```{r echo=F, eval=TRUE, message=FALSE, out.width='30%'}
+dataToPlot <- mtcars 
+plottitle <- "mtcars"
+           
+library(plotly)
+# linear regression 
+       fit <- lm(dataToPlot[,3] ~ dataToPlot[,2], data = dataToPlot)
+       
+       # plotly 
+       dataToPlot %>% plot_ly(x= dataToPlot[,2]) %>%
+                                layout(title = paste0("dataset: ",plottitle),
+                                 xaxis = list(title = colnames(dataToPlot)[2]),
+                                 yaxis = list(title = colnames(dataToPlot)[3])) %>% 
+           add_markers(y = ~dataToPlot[,3]) %>% 
+           add_lines(x = ~ dataToPlot[,2], y = fitted(fit))
+```
+  
+
+--- .class #id 
+## Good Bye 
+
+<img src="libraries/frameworks/io2012/images/google_developers_icon_128.png";>
