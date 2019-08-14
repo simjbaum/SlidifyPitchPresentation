@@ -63,6 +63,8 @@ You can choose between the datasets (and the code is at my github and you can ad
      height="300" 
      alt="This is alternate text">
 
-You can find the Data Explorer here:
-[The Data Explorer - Shiny App](https://github.com/simjbaum/StatisticInferenceAssignment1)  
+You can find the Data Explorer Shiny app here:
+[The Data Explorer - Shiny App](https://simjbaum.shinyapps.io/TheDataExplorer/)  
+You can find the Data Explorer Github repo here:
+[The Data Explorer - Github rep](https://github.com/simjbaum/SlidifyPitchPresentation/tree/master/Shiny)
 
