@@ -10,7 +10,7 @@ widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 github      :
     user: simjbaum
-    repo: slidifyDemo1
+    repo: slidifyDemo2
 ---
 
 ## What is "The Data Explorer"
